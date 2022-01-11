@@ -13,17 +13,17 @@ jobs:
     - name: Installation depends
       run: |
         mkdir -p ~/lede-a5v11-dl sandbox
-        cd ~/sandbox
+        cd /home/runner/work/sandbox
         svn co http://github.com/hackboxguy/lede-a5v11
-        cd ~/sandbox/lede-a5v11/trunk
-        ln -s ~/lede-a5v11-dl lede-dl
-        cp brbox-sources/* ~/lede-a5v11-dl/
+        cd /home/runner/work/sandbox/lede-a5v11/trunk
+        ln -s /home/runner/work/lede-a5v11-dl lede-dl
+        cp brbox-sources/* /home/runner/work/lede-a5v11-dl/
         ./prepare.sh -v 2017.04.1
     - name: Build xmpp
       run: time ./build.sh -o /mnt/buildramdisk -v 00.01 -b a5v11-xmpp
     - uses: actions/upload-artifact@v2
       with:
         name: RT5350xmpp
-        path: ~/sandbox/lede-a5v11/trunk/source/bin/targets/ramips/rt305x/openwrt-ramips-rt305x-a5-v11-squashfs-sysupgrade.bin
+        path: /home/runner/work/sandbox/lede-a5v11/trunk/source/bin/targets/ramips/rt305x/openwrt-ramips-rt305x-a5-v11-squashfs-sysupgrade.bin
 
       
