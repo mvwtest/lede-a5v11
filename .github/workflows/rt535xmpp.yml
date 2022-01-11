@@ -22,8 +22,6 @@ jobs:
     - name: Build 2
       run:
         ln -s /home/runner/work/lede-a5v11-dl lede-dl
-    - name: Build 3
-      run:
         cp brbox-sources/* /home/runner/work/lede-a5v11-dl/
     - name: Build 4
       run:
