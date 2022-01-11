@@ -17,7 +17,7 @@ jobs:
         svn co http://github.com/hackboxguy/lede-a5v11
         cd ~/sandbox/lede-a5v11/trunk
         ln -s /home/adav/lede-a5v11-dl lede-dl
-        cp brbox-sources/* /home/user/lede-a5v11-dl/
+        cp brbox-sources/* ~/lede-a5v11-dl/
         ./prepare.sh -v 2017.04.1
     - name: Build xmpp
       run: time ./build.sh -o /mnt/buildramdisk -v 00.01 -b a5v11-xmpp
