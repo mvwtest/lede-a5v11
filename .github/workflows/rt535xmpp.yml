@@ -23,8 +23,6 @@ jobs:
       run:
         ln -s /home/runner/work/lede-a5v11-dl lede-dl
         cp brbox-sources/* /home/runner/work/lede-a5v11-dl/
-    - name: Build 4
-      run:
         ./prepare.sh -v
     - name: Build 5
       run: time ./build.sh -o /mnt/buildramdisk -v 00.01 -b a5v11-xmpp
