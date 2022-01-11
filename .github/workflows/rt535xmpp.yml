@@ -13,6 +13,7 @@ jobs:
     - name: Installation depends
       run: |
         mkdir -p /home/runner/work/lede-a5v11-dl sandbox
+        mkdir -p /home/runner/work/sandbox
         cd /home/runner/work/sandbox
         svn co http://github.com/hackboxguy/lede-a5v11
         cd /home/runner/work/sandbox/lede-a5v11/trunk
