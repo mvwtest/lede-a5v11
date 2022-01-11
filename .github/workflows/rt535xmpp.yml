@@ -1,0 +1,37 @@
+name: RT535xmpp
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    #- uses: actions/checkout@v2
+    - name: set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+    - name: Download WebRTC
+      run: mkdir libs && wget -O libs/libwebrtc-m92.aar https://gultsch.de/files/libwebrtc-m92.aar
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+           mkdir -p /home/user/lede-a5v11-dl sandbox
+           cd $HOME/sandbox
+           svn co http://github.com/hackboxguy/lede-a5v11
+           cd $HOME/sandbox/lede-a5v11/trunk
+           ln -s /home/adav/lede-a5v11-dl lede-dl
+           cp brbox-sources/* /home/user/lede-a5v11-dl/
+           ./prepare.sh -v 2017.04.1
+    - name: Build xmpp
+      run: time ./build.sh -o /mnt/buildramdisk -v 00.01 -b a5v11-xmpp
+    - uses: actions/upload-artifact@v2
+      with:
+        name: RT5350xmpp
+        path: /home/runner/sandbox/lede-a5v11/trunk/source/bin/targets/ramips/rt305x/openwrt-ramips-rt305x-a5-v11-squashfs-sysupgrade.bin
+
+      
