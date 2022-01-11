@@ -16,11 +16,19 @@ jobs:
         mkdir -p /home/runner/work/sandbox
         cd /home/runner/work/sandbox
         svn co http://github.com/hackboxguy/lede-a5v11
+    - name: Build 1
+      run:
         cd /home/runner/work/sandbox/lede-a5v11/trunk
+    - name: Build 2
+      run:
         ln -s /home/runner/work/lede-a5v11-dl lede-dl
+    - name: Build 3
+      run:
         cp brbox-sources/* /home/runner/work/lede-a5v11-dl/
+    - name: Build 4
+      run:
         ./prepare.sh -v
-    - name: Build xmpp
+    - name: Build 5
       run: time ./build.sh -o /mnt/buildramdisk -v 00.01 -b a5v11-xmpp
     - uses: actions/upload-artifact@v2
       with:
