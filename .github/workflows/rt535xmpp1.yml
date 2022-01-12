@@ -1,4 +1,4 @@
-name: RT535xmpp
+name: RT535xmpp1
 
 on:
   workflow_dispatch:
