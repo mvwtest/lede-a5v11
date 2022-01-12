@@ -20,7 +20,8 @@ jobs:
         sudo ln -s /home/user/sandbox/lede-a5v11-dl lede-dl
         sudo cp brbox-sources/* /home/user/lede-a5v11-dl/
         sudo ./prepare.sh
-        sudo ./build.sh -o /mnt/buildramdisk -v 00.01 -b a5v11-xmpp
+       # sudo ./build.sh -o /mnt/buildramdisk -v 00.01 -b a5v11-xmpp
+        sudo ./build.sh -o /home/user -v 00.01 -b a5v11-xmpp
     - uses: actions/upload-artifact@v2
       with:
         name: RT5350xmpp
